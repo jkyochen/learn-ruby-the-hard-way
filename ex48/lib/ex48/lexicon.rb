@@ -13,8 +13,19 @@ class Lexicon
                 result.push(["stop", word])
             elsif (["door", "bear", "princess", "cabinet"].include?(word))
                 result.push(["noun", word])
+            elsif (convert_number(word) != nil)
+                result.push(["number", convert_number(word)])
             end
         end
         result
     end
+
+    def Lexicon.convert_number(object)
+      begin
+        return Integer(object)
+      rescue
+        return nil
+      end
+    end
+
 end
