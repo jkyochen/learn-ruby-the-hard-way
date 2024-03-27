@@ -28,4 +28,11 @@ class TestLexicon < Test::Unit::TestCase
              ['stop', 'of']])
     end
 
+    def test_nouns()
+      assert_equal(Lexicon.scan("bear"), [['noun', 'bear']])
+      result = Lexicon.scan("bear princess")
+      assert_equal(result, [['noun', 'bear'],
+             ['noun', 'princess']])
+    end
+
 end

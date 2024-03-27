@@ -11,6 +11,8 @@ class Lexicon
                 result.push(["verb", word])
             elsif (["the", "in", "of", "from", "at", "it"].include?(word))
                 result.push(["stop", word])
+            elsif (["door", "bear", "princess", "cabinet"].include?(word))
+                result.push(["noun", word])
             end
         end
         result
