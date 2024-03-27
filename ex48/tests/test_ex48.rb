@@ -20,4 +20,12 @@ class TestLexicon < Test::Unit::TestCase
              ['verb', 'eat']])
     end
 
+    def test_stops()
+      assert_equal(Lexicon.scan("the"), [['stop', 'the']])
+      result = Lexicon.scan("the in of")
+      assert_equal(result, [['stop', 'the'],
+             ['stop', 'in'],
+             ['stop', 'of']])
+    end
+
 end

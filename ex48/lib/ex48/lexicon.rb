@@ -9,6 +9,8 @@ class Lexicon
                 result.push(["direction", word])
             elsif (["go", "stop", "kill", "eat"].include?(word))
                 result.push(["verb", word])
+            elsif (["the", "in", "of", "from", "at", "it"].include?(word))
+                result.push(["stop", word])
             end
         end
         result
