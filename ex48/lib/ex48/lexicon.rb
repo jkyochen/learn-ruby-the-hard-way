@@ -15,6 +15,8 @@ class Lexicon
                 result.push(["noun", word])
             elsif (convert_number(word) != nil)
                 result.push(["number", convert_number(word)])
+            else
+                result.push(["error", word])
             end
         end
         result
