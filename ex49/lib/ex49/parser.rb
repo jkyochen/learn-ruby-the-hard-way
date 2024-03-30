@@ -41,26 +41,18 @@ class Parser
         skip(word_list, 'stop')
         next_word = peek(word_list)
 
-        if next_word == 'noun'
-            return match(word_list, 'noun')
-        elsif next_word == 'direction'
-            return match(word_list, 'direction')
-        else
-            raise ParserError.new("Expected a noun or direction next.")
-        end
+        return match(word_list, 'noun') if next_word == 'noun'
+        return match(word_list, 'direction') if next_word == 'direction'
+        raise ParserError.new("Expected a noun or direction next.")
     end
 
     def self.parse_subject(word_list)
         skip(word_list, 'stop')
         next_word = peek(word_list)
 
-        if next_word == 'noun'
-            return match(word_list, 'noun')
-        elsif next_word == 'verb'
-            return ['noun', 'player']
-        else
-            raise ParserError.new("Expected a verb next.")
-        end
+        return match(word_list, 'noun') if next_word == 'noun'
+        return ['noun', 'player'] if next_word == 'verb'
+        raise ParserError.new("Expected a verb next.")
     end
 
 end
