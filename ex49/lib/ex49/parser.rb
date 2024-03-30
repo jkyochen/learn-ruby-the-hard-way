@@ -33,11 +33,8 @@ class Parser
     def self.parse_verb(word_list)
         skip(word_list, 'stop')
 
-        if peek(word_list) == 'verb'
-            return match(word_list, 'verb')
-        else
-            raise ParserError.new("Expected a verb next.")
-        end
+        raise ParserError.new("Expected a verb next.") if peek(word_list) != 'verb'
+        match(word_list, 'verb')
     end
 
     def self.parse_object(word_list)
