@@ -6,6 +6,7 @@ end
 def peek(word_list)
     if word_list
         word = word_list[0]
+        return nil if !word
         return word[0]
     else
         return nil

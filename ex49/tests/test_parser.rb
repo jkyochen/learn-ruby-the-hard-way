@@ -24,4 +24,10 @@ class TestParser < Test::Unit::TestCase
     }
   end
 
+  def test_no_object()
+    assert_raise(ParserError.new("Expected a noun or direction next.")) {
+      parse_sentence(Lexicon.scan("bear eat"))
+    }
+  end
+
 end
