@@ -14,13 +14,8 @@ class Parser
     end
 
     def self.peek(word_list)
-        if word_list
-            word = word_list[0]
-            return nil if !word
-            return word[0]
-        else
-            return nil
-        end
+        return nil if !word_list || word_list.empty? || word_list[0].empty?
+        word_list[0][0]
     end
 
     def self.match(word_list, expecting)
