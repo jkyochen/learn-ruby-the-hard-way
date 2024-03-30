@@ -13,6 +13,8 @@ class Parser
         return Sentence.new(subj, verb, obj)
     end
 
+    private
+
     def self.peek(word_list)
         return nil if !word_list || word_list.empty? || word_list[0].empty?
         word_list[0][0]
