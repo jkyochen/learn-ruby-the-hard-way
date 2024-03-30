@@ -19,17 +19,9 @@ class Parser
     end
 
     def self.match(word_list, expecting)
-        if word_list
-            word = word_list.shift
-
-            if word[0] == expecting
-                return word
-            else
-                return nil
-            end
-        else
-            return nil
-        end
+        return nil if !word_list || word_list.empty?
+        return nil if word_list[0].empty? || word_list[0][0] != expecting
+        word_list.shift
     end
 
     def self.skip(word_list, word_type)
