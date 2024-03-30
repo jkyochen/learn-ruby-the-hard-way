@@ -2,6 +2,7 @@
 class Lexicon
 
     def Lexicon.scan(sentence)
+        return [] if sentence.nil?
         result = []
         sentence.split.each do |word|
             if (["north", "south", "east", "west", "down", "up", "left", "right", "back"].include?(word))

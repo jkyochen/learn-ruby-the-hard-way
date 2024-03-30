@@ -50,4 +50,8 @@ class TestLexicon < Test::Unit::TestCase
            ['noun', 'princess']])
   end
 
+  def test_nil()
+    assert_equal(Lexicon.scan(nil), [])
+  end
+
 end
