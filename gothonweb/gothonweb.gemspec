@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = ['lib/gothonweb.rb']
-  spec.executables   = ['bin/gothonweb']
+  spec.executables   = ['bin/app.rb']
   spec.test_files    = ['tests/test_NAME.rb']
   spec.require_paths = ["lib"]
 end
