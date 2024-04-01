@@ -46,4 +46,17 @@ class MyAppTest < Test::Unit::TestCase
     assert last_response.body.include?("You Died!")
   end
 
+  def test_no_action
+    get '/'
+    post '/game'
+    follow_redirect!
+    assert last_response.body.include?("Central Corridor")
+  end
+
+  def test_died
+    post '/game'
+    assert last_response.body.include?("You Died!")
+  end
+
+
 end
