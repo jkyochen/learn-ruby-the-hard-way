@@ -10,6 +10,7 @@ set :session_secret, 'f74c0a38527151ea4ccf07df053a47d42663226d078c76dd4b84fdd2c3
 
 get '/' do
     session[:room] = 'START'
+    session[:need_help] = false
     redirect to('/game')
 end
 
@@ -17,7 +18,15 @@ get '/game' do
     room = Map::load_room(session)
     return erb :you_died if !room
 
-    erb :show_room, :locals => {:room => room}
+    erb :show_room, :locals => {:room => room, :need_help => session[:need_help]}
+end
+
+post '/help' do
+    room = Map::load_room(session)
+    return erb :you_died if !room
+
+    session[:need_help] = true
+    redirect to('/game')
 end
 
 post '/game' do

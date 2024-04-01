@@ -8,8 +8,22 @@
     <p><a href="/">Play Again?</a></p>
 <% else %>
     <p>
+    <form action="/help" method="POST">
+        <button type='submit'>Help</button>
+    </form>
     <form action="/game" method="POST">
-        - <input type="text" name="action"> <input type="SUBMIT">
+        <% if need_help %>
+            <select name="action" id="action">
+                <option value="">--Please choose an option--</option>
+                <% puts room.paths.keys %>
+                <% for option in room.paths.keys %>
+                    <option value="<%= option %>"><%= option %></option>
+                <% end %>
+            </select>
+        <% else %>
+            - <input type="text" name="action">
+        <% end %>
+        <input type="SUBMIT">
     </form>
     </p>
 <% end %>
