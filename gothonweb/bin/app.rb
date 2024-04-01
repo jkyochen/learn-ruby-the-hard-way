@@ -8,8 +8,6 @@ set :views, "views"
 enable :sessions
 set :session_secret, 'f74c0a38527151ea4ccf07df053a47d42663226d078c76dd4b84fdd2c3b5c613'
 
-session = {}
-
 get '/' do
     session[:room] = 'START'
     redirect to('/game')
