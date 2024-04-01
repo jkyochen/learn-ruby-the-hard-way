@@ -11,6 +11,7 @@ class MyAppTest < Test::Unit::TestCase
 
   def test_normal_flow
     get '/'
+    post '/login'
     follow_redirect!
     assert last_response.body.include?("Central Corridor")
   end
@@ -22,6 +23,7 @@ class MyAppTest < Test::Unit::TestCase
 
   def test_game_win
     get '/'
+    post '/login'
     post '/game', params={:action => 'tell a joke'}
     follow_redirect!
     assert last_response.body.include?("Laser Weapon Armory")
@@ -41,6 +43,7 @@ class MyAppTest < Test::Unit::TestCase
 
   def test_game_loser
     get '/'
+    post '/login'
     post '/game', params={:action => 'shoot!'}
     follow_redirect!
     assert last_response.body.include?("You Died!")
@@ -48,6 +51,7 @@ class MyAppTest < Test::Unit::TestCase
 
   def test_no_action
     get '/'
+    post '/login'
     post '/game'
     follow_redirect!
     assert last_response.body.include?("Central Corridor")
